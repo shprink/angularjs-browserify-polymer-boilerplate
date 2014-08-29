@@ -1,0 +1,28 @@
+{
+    "name": "angularjs-browserify-polymer-boilerplate",
+    "version": "0.0.0",
+    "description": "Boilerplate using AngularJS, Broserify and Polymer",
+    "author": "shprink",
+    "license": "MIT",
+    "devDependencies": {
+        "gulp": "^3.8.7",
+        "gulp-browserify": "^0.5.0",
+        "gulp-concat": "^2.2.0",
+        "gulp-if": "^1.2.2",
+        "gulp-ignore": "^1.2.0",
+        "gulp-minify-css": "^0.3.6",
+        "gulp-minify-html": "^0.1.4",
+        "gulp-print": "^1.1.0",
+        "gulp-rimraf": "^0.1.0",
+        "gulp-sass": "^0.7.3",
+        "gulp-task-listing": "^0.3.0",
+        "gulp-uglify": "^0.3.1",
+        "require-dir": "^0.1.0"
+    },
+    "browser": {
+        "angular": "./bower_components/angular/angular.js"
+        , "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js"
+        , "angular-sanitize": "./bower_components/angular-sanitize/angular-sanitize.js"
+        , "angular-resource": "./bower_components/angular-resource/angular-resource.js"
+    }
+}
