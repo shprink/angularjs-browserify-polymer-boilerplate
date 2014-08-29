@@ -25,7 +25,7 @@ server.use(express.static('./www'));
 
 var IS_RELEASE_BUILD = (typeof argv.prod === 'undefined') ? false : true;
 
-gulp.task('default', ['browserify']);
+gulp.task('default', ['browserify', 'views', 'css']);
 
 gulp.task('browserify', function() {
     gulp.src('lib/js/main.js')
@@ -57,6 +57,13 @@ gulp.task('css', function() {
 });
 
 gulp.task('views', function() {
+    gulp.src(['lib/index.html'])
+            .pipe(gulpif(IS_RELEASE_BUILD, minifyHtml({
+                quotes: true,
+                empty: true
+            })))
+            .pipe(gulp.dest('./www'));
+
     gulp.src(['lib/views/**/*.html'])
             .pipe(gulpif(IS_RELEASE_BUILD, minifyHtml({
                 quotes: true,
