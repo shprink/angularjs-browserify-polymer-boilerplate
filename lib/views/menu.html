@@ -1,4 +1,15 @@
-<ul>
-    <li><a ui-sref="root.home">Home</a></li>
-    <li><a ui-sref="root.admin">Admin</a></li>
-</ul>
+<material-sidenav class="material-sidenav-left material-whiteframe-z2" component-id="left">
+    <material-toolbar class="material-theme-indigo">
+        <h1 class="material-toolbar-tools">Sidenav Left</h1>
+    </material-toolbar>
+    <material-content class="material-content-padding">
+        <material-button ng-click="close()" class="material-button-colored" hide-md>
+            Close Sidenav Left
+        </material-button>
+        <ul>
+            <li><a ui-sref="root.home">Home</a></li>
+            <li><a ui-sref="root.admin">Admin</a></li>
+        </ul>
+    </material-content>
+
+</material-sidenav>

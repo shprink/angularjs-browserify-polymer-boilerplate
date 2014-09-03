@@ -10,6 +10,7 @@ var gulp = require('gulp')
         , stripDebug = require('gulp-strip-debug')
         , browserify = require('gulp-browserify')
         , gulpif = require('gulp-if')
+        , merge = require('merge-stream')
         , taskListing = require('gulp-task-listing');
 
 
@@ -24,6 +25,8 @@ server.use(livereload({port: livereloadport}));
 server.use(express.static('./www'));
 
 var IS_RELEASE_BUILD = (typeof argv.prod === 'undefined') ? false : true;
+
+var pathService = require('./gulp/services/path');
 
 gulp.task('default', ['browserify', 'views', 'css']);
 
@@ -49,8 +52,8 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('css', function() {
-    gulp.src(['lib/scss/**/*.scss'])
-            .pipe(sass())
+    merge(gulp.src([pathService.get('bower') + 'angular-material/angular-material.css'])
+            , gulp.src(['lib/scss/**/*.scss']).pipe(sass()))
             .pipe(concat(IS_RELEASE_BUILD ? 'bundle.min.css' : 'bundle.css'))
             .pipe(gulpif(IS_RELEASE_BUILD, minifyCss()))
             .pipe(gulp.dest('./www/css'));

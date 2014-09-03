@@ -13,8 +13,12 @@
         "tests"
     ],
     "dependencies": {
-        "angular": "~1.2.17",
-        "angular-ui-router": "0.2.10",
-        "angular-resource": "1.2.22"
+        "angular": "~1.3",
+        "angular-ui-router": "~0.2.10",
+        "angular-material": "~0.0.2",
+        "angular-animate": "~1.3",
+        "polymer": "~0.4",
+        "core-elements": "Polymer/core-elements#~0.4",
+        "paper-elements": "Polymer/paper-elements#~0.4"
     }
 }
