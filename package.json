@@ -31,7 +31,8 @@
         "angular": "./bower_components/angular/angular.js",
         "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js",
         "angular-animate": "./bower_components/angular-animate/angular-animate.js",
-        "angular-material": "./bower_components/angular-material/angular-material.js"
+        "polymer-platform": "./bower_components/platform/platform.js",
+        "polymer": "./bower_components/polymer/polymer.js"
     },
     "browserify-shim": {
         "angular": "angular",

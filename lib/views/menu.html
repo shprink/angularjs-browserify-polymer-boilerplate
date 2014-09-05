@@ -1,15 +1,10 @@
-<material-sidenav class="material-sidenav-left material-whiteframe-z2" component-id="left">
-    <material-toolbar class="material-theme-indigo">
-        <h1 class="material-toolbar-tools">Sidenav Left</h1>
-    </material-toolbar>
-    <material-content class="material-content-padding">
-        <material-button ng-click="close()" class="material-button-colored" hide-md>
-            Close Sidenav Left
-        </material-button>
-        <ul>
-            <li><a ui-sref="root.home">Home</a></li>
-            <li><a ui-sref="root.admin">Admin</a></li>
-        </ul>
-    </material-content>
-
-</material-sidenav>
+<core-menu selected="0">
+    <core-item label="Home" ui-sref="root.home"></core-item>
+    <core-submenu icon="settings" label="Module">
+        <core-item label="Module one" ui-sref="root.home"></core-item>
+        <core-item label="Module two" ui-sref="root.admin"></core-item>
+    </core-submenu>
+    <core-submenu icon="settings" label="Settings">
+        <core-item label="Admin" ui-sref="root.admin"></core-item>
+    </core-submenu>
+</core-menu>

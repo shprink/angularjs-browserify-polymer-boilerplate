@@ -1,0 +1,75 @@
+<polymer-element name="user-list">
+    <template>
+        <style>
+            core-list {
+                height: 100%;
+            }
+
+            .item {
+                box-sizing: border-box;
+                height: 80px;
+                border-bottom: 1px solid #ddd;
+                padding: 4px;
+                cursor: default;
+                background-color: white;
+                overflow: hidden;
+            }
+
+            .selected {
+                background: silver;
+            }
+
+            .message {
+                padding-left: 77px;
+                line-height: 167%;
+                background-repeat: no-repeat;
+                background-position: 10px 10px;
+                background-size: 60px;
+            }
+
+            .from {
+                display: inline;
+                font-weight: bold;
+            }
+
+            .timestamp {
+                margin-left: 10px;
+                font-size: 12px;
+                opacity: 0.8;
+            }
+
+            .body {
+                font-size: 12px;
+            }
+        </style>
+        <core-list id="list" data="{{list}}" height="80">
+            <template>
+                <div class="item {{ {selected: selected} | tokenList }}">
+                    <div class="message" style="background-image: url(http://placekitten.com/g/50/50);">
+                        <span class="from">{{name}}</span>
+                        <span class="timestamp">{{time}}</span>
+                        <div class="subject">Infinite List. {{index}}</div>
+                        <div class="body">{{details}}</div>
+                    </div>
+                </div>
+            </template>
+        </core-list>
+
+    </template>
+    <script>
+        (function() {
+            var userService = angular.injector(['boilerplate']).get('UserService');
+
+
+            Polymer('user-list', {
+                ready: function() {
+                    this.list = userService.getList();
+                },
+                tapAction: function(e) {
+                    console.log('tap', e);
+                }
+            });
+
+        })();
+    </script>
+</polymer-element>
