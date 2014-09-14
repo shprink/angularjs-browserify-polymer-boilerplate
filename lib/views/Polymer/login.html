@@ -1,0 +1,78 @@
+<link rel="import" href="paper-button/paper-button.html">
+<link rel="import" href="core-input/core-input.html">
+<link rel="import" href="core-style/core-style.html">
+<link rel="import" href="paper-input/paper-input.html">
+<polymer-element name="boilerplate-login">
+    <template>
+        <style>
+            .login-form {
+            	position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300px;
+                height: 300px;
+                margin-top: -150px;
+                margin-left: -150px;
+            }
+
+            .login-form .header {
+            	padding: 10px;
+            }
+
+            .login-form .header h1 {
+            	font-size: 28px;
+            	line-height:34px;
+            	color: #333;
+            	margin-bottom: 10px;
+            }
+
+            .login-form .content {
+
+            }
+
+            .login-form .footer {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+            }
+        </style>
+        <form class="login-form" action="" method="post" on-keypress="{{onKeypress}}">
+    		<div class="header">
+        		<h1>Login</h1>
+    		</div>
+    		<div class="content">
+                <paper-input name="login" value="{{user.login}}" floatingLabel type="text" label="Your Name" placeholder="Username" layout vertical></paper-input>
+                <paper-input name="password" value="{{user.password}}" floatingLabel type="password" label="Your Name" placeholder="Password (not needed for the demo)" layout vertical></paper-input>
+    		</div>
+    		<div class="footer">
+                <paper-button type="submit" label="Login" raisedButton on-click="{{sendForm}}"></paper-button>
+    		</div>
+    	</form>
+    </template>
+    <script>
+        (function() {
+            var ENTER_KEY = 13;
+            Polymer('boilerplate-login', {
+                ready: function() {
+                    this.user = {
+                        login: '',
+                        password: ''
+                    }
+                    this.angularScope = angular.element(this).scope();
+                },
+                onKeypress: function(e, detail, sender) {
+					if (e.keyCode === ENTER_KEY) {
+                        this.sendForm();
+					}
+				},
+                sendForm: function(){
+                    console.log(this.user.login, 'login');
+                    console.log(this.user.password, 'password');
+                    this.angularScope.goToHome();
+                }
+            });
+
+        })();
+    </script>
+</polymer-element>
